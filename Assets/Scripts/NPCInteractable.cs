@@ -7,13 +7,13 @@ public class NPCInteractable : MonoBehaviour, IInteractable
 {
     [SerializeField] private string interactText;
     [SerializeField] private Dialogue dialogue;
-
-    
+    public AudioClip npcTalk;
 
     public void Interact()
     {
         Debug.Log("Interact!");
         dialogue.Talk();
+        gameObject.GetComponent<AudioSource>().PlayOneShot(npcTalk);
     }
 
     public string GetInteractText()
@@ -30,4 +30,6 @@ public class NPCInteractable : MonoBehaviour, IInteractable
     {
         return transform;
     }
+
+    
 }

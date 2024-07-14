@@ -6,6 +6,7 @@ public class ATMInteractable : MonoBehaviour, IInteractable
 {
     private Animator animator;
     private bool isActive;
+    public AudioClip atmSFX;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class ATMInteractable : MonoBehaviour, IInteractable
     {
         isActive = !isActive;
         animator.SetBool("isActive", isActive);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(atmSFX);
     }
 
     public void Interact(Transform interactorTransform)

@@ -6,6 +6,7 @@ public class BoxInteractable : MonoBehaviour, IInteractable
 {
     private Animator animator;
     private bool isOpen;
+    public AudioClip boxClick;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class BoxInteractable : MonoBehaviour, IInteractable
     {
         isOpen = !isOpen;
         animator.SetBool("isOpen", isOpen);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(boxClick);
     }
 
     public void Interact(Transform interactorTransform)
